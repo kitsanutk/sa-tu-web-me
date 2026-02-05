@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F1 Technology</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<div id="page-loader">
+    <div class="loader-inner">
+        <div class="loader-title">FORMULA 1</div>
+        <div class="loader-bar">
+            <span></span>
+        </div>
+    </div>
+</div>
+
+<body>
+      
+     <header>
+     <!-- LOGO -->
+    <a href="index.html" class="logo">
+        <img src="image/F1_logo1.png" alt="F1 Logo">
+    </a>
+
+    <h1>FORMULA 1 TECHNOLOGY</h1>
+    <h3><p>สุดยอดเทคโนโลยียานยนต์แห่งโลกความเร็ว</p></h3>
+     <!-- 🔊 SOUND BUTTON (HEADER) -->
+    <button id="header-sound-btn" title="Toggle Sound">
+        🔊
+    </button>
+     <input
+    type="range"
+    id="music-progress"
+    min="0"
+    max="100"
+    value="0"
+/>
+</header>
+
+<nav>
+    <div class="nav-inner">
+        <ul class="nav-menu">
+
+            
+            <!-- ENGINE + DROPDOWN -->
+            <li class="has-dropdown">
+                <a href="engine.html">ENGINE <span class="arrow">▼</span></a>
+                <ul class="dropdown">
+                    <li><a href="engine.html#ea">Engine Architecture</a></li>
+                    <li><a href="engine.html#dr">Displacement & RPM</a></li>
+                    <li><a href="engine.html#ts">Turbocharger System</a></li>
+                    <li><a href="engine.html#cp">Combustion Process</a></li>
+                    <li><a href="engine.html#es">Exhaust System</a></li>
+                    <li><a href="engine.html#cs">Cooling System</a></li>
+                    <li><a href="engine.html#ls">Lubrication System</a></li>
+                    <li><a href="engine.html#mwo">Materials & Weight Optimization</a></li>
+                    <li><a href="engine.html#mr">Maintenance & Reliability</a></li>
+                </ul>
+            </li>
+
+            <!-- ENGINE + DROPDOWN -->
+            <li class="has-dropdown">
+                <a href="hybrid.html">HYBRID <span class="arrow">▼</span></a>
+                <ul class="dropdown">
+                   <li><a href="hybrid.html#energy">Energy Recovery Principle</a></li>
+                    <li><a href="hybrid.html#mguk">MGU-K Function</a></li>
+                    <li><a href="hybrid.html#mguh">MGU-H Function</a></li> 
+                </ul>
+            </li>
+            
+            <li><a href="aero.html">AERODYNAMICS</a></li>
+            <li><a href="materials.html">MATERIALS</a></li>
+            <li><a href="suspension.html">SUSPENSION</a></li>
+            <li><a href="tires.html">TIRES</a></li>
+            <li><a href="software.html">SOFTWARE</a></li>
+            <li><a href="future.html">FUTURE</a></li>
+            <li><a href="SteeringWheel.html">STEERING WHEEL</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- VIDEO BACKGROUND -->
+<div class="video-bg">
+    <video id="bg-video" autoplay muted loop playsinline>
+        <source src="Video/VideoF1Bg.mp4" type="video/mp4">
+    </video>
+</div>
+
+<main class="detail-page">
+    <div class="image-center">
+    <!-- รูปภาพ F1 -->
+        <img src="image/Suspension_F1.png" alt="BgF1">
+    </div>
+    <!-- ข้อความด้านข้าง -->
+    <section class="content">
+        <h1> ระบบกันสะเทือน </h1>
+        <p>
+           
+         ระบบที่เชื่อมต่อตัวถังรถกับล้อ ทำหน้าที่สำคัญคือ รักษาให้ยางสัมผัสพื้นให้มากที่สุด เพื่อการยึดเกาะสูงสุด (Grip) โดยการดูดซับแรงกระแทกจากพื้นผิวสนาม, ควบคุมการเคลื่อนไหวของรถให้มั่นคง, และถ่ายเทน้ำหนักรถอย่างมีประสิทธิภาพ ทำให้รถเข้าโค้ง, เบรก, และเร่งความเร็วได้ดีเยี่ยม ซึ่งประกอบด้วยสปริง, โช้คอัพ, และกลไกแบบ Pull-rod/Push-rod ที่ซับซ้อน.
+
+    </section>
+      
+</main>
+<footer>
+    <p>&copy; 2026 F1 Technology. By Kitsanut Nuchsuk.</p>
+</footer>
+
+<script>
+(() => {
+    const loader = document.getElementById("page-loader");
+    if (!loader) return;
+
+    const LOADER_KEY = "f1-loader-active";
+
+    // 🔴 ตอนเข้าเว็บใหม่
+    window.addEventListener("load", () => {
+        setTimeout(() => {
+            loader.classList.add("hide");
+            sessionStorage.removeItem(LOADER_KEY);
+        }, 400);
+    });
+
+    // 🔴 ดักลิงก์ทั้งหมด
+    document.querySelectorAll("a[href]").forEach(link => {
+        link.addEventListener("click", e => {
+            const url = link.getAttribute("href");
+
+            // กันกรณีไม่ต้องโหลด
+            if (
+                !url ||
+                url.startsWith("#") ||
+                link.target === "_blank" ||
+                sessionStorage.getItem(LOADER_KEY)
+            ) return;
+
+            e.preventDefault();
+
+            sessionStorage.setItem(LOADER_KEY, "true");
+            loader.classList.remove("hide");
+
+            setTimeout(() => {
+                window.location.href = url;
+            }, 450);
+        });
+    });
+})();
+</script>
+
+<!-- 🎵 BACKGROUND MUSIC -->
+<audio id="bg-music" loop>
+    <source src="sound/Formula 1 Theme.mp3" type="audio/mpeg">
+</audio>
+<script src="java.js"></script>
+</body>
+</html>

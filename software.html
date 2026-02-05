@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F1 Technology</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<div id="page-loader">
+    <div class="loader-inner">
+        <div class="loader-title">FORMULA 1</div>
+        <div class="loader-bar">
+            <span></span>
+        </div>
+    </div>
+</div>
+
+<body>
+      
+     <header>
+     <!-- LOGO -->
+    <a href="index.html" class="logo">
+        <img src="image/F1_logo1.png" alt="F1 Logo">
+    </a>
+
+    <h1>FORMULA 1 TECHNOLOGY</h1>
+    <h3><p>สุดยอดเทคโนโลยียานยนต์แห่งโลกความเร็ว</p></h3>
+     <!-- 🔊 SOUND BUTTON (HEADER) -->
+    <button id="header-sound-btn" title="Toggle Sound">
+        🔊
+    </button>
+     <input
+    type="range"
+    id="music-progress"
+    min="0"
+    max="100"
+    value="0"
+/>
+</header>
+
+<nav>
+    <div class="nav-inner">
+        <ul class="nav-menu">
+
+            
+            <!-- ENGINE + DROPDOWN -->
+            <li class="has-dropdown">
+                <a href="engine.html">ENGINE <span class="arrow">▼</span></a>
+                <ul class="dropdown">
+                    <li><a href="engine.html#ea">Engine Architecture</a></li>
+                    <li><a href="engine.html#dr">Displacement & RPM</a></li>
+                    <li><a href="engine.html#ts">Turbocharger System</a></li>
+                    <li><a href="engine.html#cp">Combustion Process</a></li>
+                    <li><a href="engine.html#es">Exhaust System</a></li>
+                    <li><a href="engine.html#cs">Cooling System</a></li>
+                    <li><a href="engine.html#ls">Lubrication System</a></li>
+                    <li><a href="engine.html#mwo">Materials & Weight Optimization</a></li>
+                    <li><a href="engine.html#mr">Maintenance & Reliability</a></li>
+                </ul>
+            </li>
+
+            <!-- ENGINE + DROPDOWN -->
+            <li class="has-dropdown">
+                <a href="hybrid.html">HYBRID <span class="arrow">▼</span></a>
+                <ul class="dropdown">
+                  <li><a href="hybrid.html#energy">Energy Recovery Principle</a></li>
+                    <li><a href="hybrid.html#mguk">MGU-K Function</a></li>
+                    <li><a href="hybrid.html#mguh">MGU-H Function</a></li> 
+                </ul>
+            </li>
+
+            <li><a href="aero.html">AERODYNAMICS</a></li>
+            <li><a href="materials.html">MATERIALS</a></li>
+            <li><a href="suspension.html">SUSPENSION</a></li>
+            <li><a href="tires.html">TIRES</a></li>
+            <li><a href="software.html">SOFTWARE</a></li>
+            <li><a href="future.html">FUTURE</a></li>
+            <li><a href="SteeringWheel.html">STEERING WHEEL</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- VIDEO BACKGROUND -->
+<div class="video-bg">
+    <video id="bg-video" autoplay muted loop playsinline>
+        <source src="Video/VideoF1Bg.mp4" type="video/mp4">
+    </video>
+</div>
+
+<main class="detail-page">
+    <div class="image-center">
+    <!-- รูปภาพ F1 -->
+        <img src="image/SoftWare_F1.png" alt="BgF1">
+    </div>
+    <!-- ข้อความด้านข้าง -->
+    <section class="content">
+        <h1> ซอฟต์แวร์ </h1>
+        <p>
+           
+         การแข่งขัน Formula 1 ไม่ได้วัดกันแค่ความเร็วของรถหรือฝีมือนักแข่งเท่านั้น แต่ยังขึ้นอยู่กับ ระบบซอฟต์แวร์และการประมวลผลข้อมูลแบบเรียลไทม์ ซึ่งประกอบด้วย ECU, Telemetry และ AI/Data Analysis ที่ทำงานร่วมกันตลอดการแข่งขัน
+
+ระบบ ECU (Electronic Control Unit) ทำหน้าที่เป็นสมองของรถ F1 ควบคุมการทำงานของเครื่องยนต์ ระบบไฮบริด และการจ่ายพลังงานไฟฟ้าให้มีประสิทธิภาพสูงสุด ECU จะคำนวณการเผาไหม้ การจ่ายเชื้อเพลิง การทำงานของเทอร์โบ และการใช้พลังงานจากแบตเตอรี่ให้สอดคล้องกับกฎการแข่งขันและสภาพสนามในแต่ละช่วงเวลา
+
+ข้อมูลทั้งหมดจาก ECU และเซนเซอร์ต่าง ๆ รอบรถจะถูกส่งผ่าน ระบบ Telemetry ไปยังทีมวิศวกรที่พิทแบบเรียลไทม์ เช่น อุณหภูมิเครื่องยนต์ แรงดันยาง การใช้พลังงาน สภาพยาง และพฤติกรรมการขับของนักแข่ง ทำให้ทีมสามารถติดตามสถานะรถได้ตลอดเวลา และตัดสินใจได้อย่างรวดเร็วหากเกิดปัญหา
+
+ข้อมูลจำนวนมหาศาลที่ได้จาก Telemetry จะถูกนำไปประมวลผลด้วย AI และ Data Analysis เพื่อช่วยวางกลยุทธ์การแข่งขัน เช่น การเลือกช่วงเวลาเข้าพิท การจัดการยาง การบริหารพลังงาน และการคาดการณ์พฤติกรรมของคู่แข่ง ระบบ AI สามารถวิเคราะห์ข้อมูลจากการแข่งขันที่ผ่านมาและสถานการณ์ปัจจุบัน เพื่อช่วยให้ทีมตัดสินใจได้แม่นยำและลดความผิดพลาดของมนุษย์
+
+    </section>
+      
+</main>
+<footer>
+    <p>&copy; 2026 F1 Technology. By Kitsanut Nuchsuk.</p>
+</footer>
+
+<script>
+(() => {
+    const loader = document.getElementById("page-loader");
+    if (!loader) return;
+
+    const LOADER_KEY = "f1-loader-active";
+
+    // 🔴 ตอนเข้าเว็บใหม่
+    window.addEventListener("load", () => {
+        setTimeout(() => {
+            loader.classList.add("hide");
+            sessionStorage.removeItem(LOADER_KEY);
+        }, 400);
+    });
+
+    // 🔴 ดักลิงก์ทั้งหมด
+    document.querySelectorAll("a[href]").forEach(link => {
+        link.addEventListener("click", e => {
+            const url = link.getAttribute("href");
+
+            // กันกรณีไม่ต้องโหลด
+            if (
+                !url ||
+                url.startsWith("#") ||
+                link.target === "_blank" ||
+                sessionStorage.getItem(LOADER_KEY)
+            ) return;
+
+            e.preventDefault();
+
+            sessionStorage.setItem(LOADER_KEY, "true");
+            loader.classList.remove("hide");
+
+            setTimeout(() => {
+                window.location.href = url;
+            }, 450);
+        });
+    });
+})();
+</script>
+
+<!-- 🎵 BACKGROUND MUSIC -->
+<audio id="bg-music" loop>
+    <source src="sound/Formula 1 Theme.mp3" type="audio/mpeg">
+</audio>
+<script src="java.js"></script>
+</body>
+</html>
