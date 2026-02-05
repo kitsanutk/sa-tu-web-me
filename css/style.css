@@ -1,0 +1,1207 @@
+/* ==================================================
+   F1 COLOR THEME
+   Red: #e10600
+   White: #ffffff
+   Dark: #111111
+   Light Gray: #f4f4f4
+================================================== */
+
+/* ==================================================
+   RESET & GLOBAL
+================================================== */
+/* ===============================
+   F1 LOADING SCREEN
+=============================== */
+#loading-screen {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at top, #111, #020213);
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+/* เอฟเฟกต์ scan */
+#loading-screen::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        transparent 30%,
+        rgba(225, 6, 0, 0.35) 50%,
+        transparent 70%
+    );
+    animation: scan 2.5s linear infinite;
+}
+
+@keyframes scan {
+    from { transform: translateX(-100%); }
+    to   { transform: translateX(100%); }
+}
+
+/* Loader box */
+.f1-loader {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    min-width: 300px;
+}
+
+/* FORMULA 1 */
+.f1-title {
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+/* Progress bar */
+.progress-wrap {
+    width: 100%;
+    height: 6px;
+    background: #222;
+    overflow: hidden;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        #e10600,
+        #ff3b3b
+    );
+    transition: width 0.3s ease;
+}
+
+/* % text */
+.loading-percent {
+    font-size: 14px;
+    letter-spacing: 4px;
+    opacity: 0.85;
+}
+
+/* Fade out */
+#loading-screen.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* ===============================
+   PAGE TRANSITION LOADER (F1)
+=============================== */
+#page-loader {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at top, #111, #020213);
+    z-index: 99999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .6s ease, visibility .6s ease;
+}
+
+#page-loader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-inner {
+    text-align: center;
+    color: #fff;
+}
+
+.loader-title {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+/* progress bar */
+.loader-bar {
+    width: 280px;
+    height: 5px;
+    background: #222;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.loader-bar span {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #e10600, #ff3b3b);
+    animation: loading 1.2s linear infinite;
+}
+
+@keyframes loading {
+    from { width: 0%; }
+    to   { width: 100%; }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;   /* ❌ กันเว็บล้นจอ */
+    overflow-y: auto; /* 🔥 ให้ scroll เกิดที่ window */
+}
+
+body {
+    font-family: 'Titillium Web', Arial, Helvetica, sans-serif;
+    background-color: #020213;
+    color: #ffffff;
+}
+
+
+/* =============================
+   IMAGE GLOBAL
+============================= */
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* =============================
+   NAVBAR
+============================= */
+nav {
+     position: sticky;
+    top: 0;
+
+    width: 100%;
+    z-index: 1000;
+
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    border-bottom: 2px solid #e10600;
+}
+
+/* เส้น scan */
+nav::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -40%;
+    width: 30%;
+    height: 100%;
+
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(225, 6, 0, 0.9) 20%,
+        rgba(225, 6, 0, 0.6) 50%,
+        rgba(225, 6, 0, 0.3) 80%,
+        transparent 100%
+    );
+    opacity: 0;
+    animation: nav-scan 2.5s linear infinite;
+    pointer-events: none;
+}
+
+nav:hover::after {
+    opacity: 1;
+    animation: nav-scan 2.5s linear infinite;
+}
+
+/* Animation */
+@keyframes nav-scan {
+    from { left: -40%; }
+    to   { left: 100%; }
+}
+
+.nav-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+    width: 100%;
+    margin: auto;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;       /* 🔥 กันข้อความตก */
+}
+
+.nav-menu li {
+    position: relative;
+}
+
+.nav-menu a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 16px 18px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+
+    color: #fff;
+    text-decoration: none;
+    position: relative; 
+    white-space: nowrap;  /* ENGINE / STEERING WHEEL จะไม่โดนตัด */
+}
+
+.nav-menu li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #e10600,
+        transparent
+    );
+
+    opacity: 0;
+}
+
+.nav-menu li a:hover::after {
+    opacity: 1;
+    animation: menu-scan 0.9s ease-in-out;
+}
+
+@keyframes menu-scan {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+/* 🔥 เส้นใต้ hover (กึ่งกลาง + ยาวเท่าข้อความ) */
+.nav-menu a::before {
+    content: "";
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.has-dropdown .arrow {
+    font-size: 12px;
+    transition: .3s;
+}
+.nav-menu a:hover::before {
+    width: 100%;
+}
+
+.has-dropdown:hover > a::after {
+    transform: rotate(180deg);
+}
+
+/* ===== ACTIVE NAV ===== */
+.nav-menu a.active {
+    color: #e10600;
+}
+
+/* เส้นใต้ค้าง */
+.nav-menu a.active::before {
+    width: 100%;
+}
+
+/* พื้นหลังนิดๆ */
+.nav-menu a.active {
+    background: rgba(225, 6, 0, 0.15);
+    border-radius: 3px;
+}
+/* =============================
+   DROPDOWN
+============================= */
+
+/* ==============================
+   HYBRID CONTENT CENTER
+============================== */
+.hybrid-content {
+    max-width: 900px;          /* 🔥 คุมความกว้าง */
+    margin: 0 auto;            /* 🔥 จัดกึ่งกลางจอ */
+    padding: 40px 20px;
+}
+
+/* หัวข้อกลาง */
+.center-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.center-desc {
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+/* หัวข้อย่อย */
+.section-title {
+    margin: 40px 0 20px;
+    font-size: 24px;
+    border-left: 4px solid #e10600;
+    padding-left: 12px;
+}
+
+/* list หลัก */
+.hybrid-list,
+.hybrid-goals {
+    margin-left: 20px;
+    line-height: 1.8;
+}
+
+.hybrid-list > li {
+    margin-bottom: 20px;
+}
+
+.hybrid-list ul {
+    margin-top: 10px;
+    margin-left: 25px;
+    list-style: disc;
+}
+
+.has-dropdown:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* =============================
+   NEWS LAYOUT
+============================= */
+.news-layout {
+    max-width: 1400px;
+    margin: 30px;
+    display: grid;
+    grid-template-columns: 2.2fr 1fr;
+    gap: 20px;
+}
+
+/* กัน layout ว่างโผล่ */
+.news-layout:empty {
+    display: none;
+}
+
+/* =============================
+   MAIN NEWS IMAGE
+============================= */
+.image-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+/* 🔥 ให้ทั้งรูปคลิกได้ */
+.image-box a {
+    display: block;
+    position: relative;
+}
+
+.image-box img {
+    transition: transform 0.5s ease;
+}
+
+.image-box:hover img {
+    transform: scale(1.06);
+}
+
+/* =============================
+   TEXT OVER IMAGE
+============================= */
+.overlay {
+    position: absolute;
+    left: 24px;
+    bottom: 24px;
+}
+
+.overlay h2 {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+/* 🔥 เส้นใต้ข้อความ (โผล่ตอน hover เท่านั้น) */
+.overlay .underline {
+    display: block;
+    height: 3px;
+    width: 0;
+    background: #fff;
+    margin-top: 8px;
+    transition: width 0.3s ease;
+}
+
+.image-box:hover .underline {
+    width: 100%;
+}
+
+/* =============================
+   SIDE NEWS
+============================= */
+.news-side {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.side-link {
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.side-link:visited {
+    color: #ffffff;
+}
+
+/* card */
+.side-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ข้อความ */
+.side-text {
+    position: relative;
+    display: inline-block;
+}
+
+/* เส้นใต้ (ซ่อนอยู่ก่อน) */
+.side-text::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+
+    width: 0;
+    height: 2px;
+    background-color: #ffffff;
+
+    transition: width 0.3s ease;
+}
+
+/* hover แล้วเส้นโผล่ */
+.side-link:hover .side-text::after {
+    width: 100%;
+}
+
+.side-card {
+    display: flex;
+    gap: 14px;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    align-items: center;
+
+     background: #000;
+    padding: 12px;
+    border-radius: 10px;
+
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.side-card img {
+    width: 90px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 6px;
+    transition: transform 0.4s ease;
+}
+
+.side-card:hover img {
+    transform: scale(1.1);
+}
+
+.side-card p {
+    font-size: 15px;
+    padding-right: 10px;
+ 
+}
+
+/* hover effect */
+.side-link:hover .side-card {
+    background: #111;
+    transform: translateX(6px);
+}
+/* ==================================================
+   LOADING SCREEN
+================================================== */
+#loading {
+    position: fixed;
+    inset: 0;
+    background-color: #e10600;
+    color: #aa2727;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+
+/* ==================================================
+   HEADER
+================================================== */
+header h1 {
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+
+header p {
+    margin-top: 10px;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* ==============================
+   HEADER LOGO
+============================== */
+
+
+.logo {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    display: block;
+}
+
+.logo img {
+    max-width: 100px;     /* 🔥 ล็อกขนาดโลโก้ */
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 0 6px rgba(0,0,0,0.6));
+    
+}
+
+/* เอฟเฟกต์เล็กน้อยตอนชี้ */
+.logo:hover img {
+    transform: scale(1.05);
+}
+
+/* ==================================================
+   NAVBAR (FULL WIDTH)
+================================================== */
+
+.nav-menu > li > a {
+    position: relative;
+}
+
+.nav-menu > li > a::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 4px;
+
+    width: 0;
+    height: 2px;
+    background-color: #ffffff;
+
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.nav-menu > li > a:hover::before {
+    width: 80%;
+}
+
+/* ==================================================
+   DROPDOWN ARROW (RIGHT SIDE)
+================================================== */
+
+/* หมุนลูกศร */
+.has-dropdown:hover > a::after {
+    transform: rotate(180deg);
+}
+.nav-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0; /* หรือ 0 20px ถ้าอยากเว้นขอบ */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1px;
+}
+
+nav ul li {
+    flex: none;               /* 🔥 ทุกเมนูกว้างเท่ากัน */
+    text-align: center;    /* กันพลาด */
+}
+
+nav ul li a {
+    
+    display: flex;
+    color: #ffffff;
+    text-decoration: none;
+     align-items: center;           /* กลางแนวตั้ง */
+    justify-content: center;       /* กลางแนวนอน */
+
+
+    font-size: 20px;          /* 🔥 เพิ่มขนาดตัวอักษร */
+    font-weight: 700;
+
+    padding: 16px 18px;       /* 🔥 เพิ่มพื้นที่คลิก */
+    letter-spacing: 1.5px;    /* 🔥 ตัวอักษรห่างขึ้น */
+
+    transition: 
+        transform 0.3s cubic-bezier(.4,0,.2,1),
+        background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    transform: translateY(-6px);   /* 🔥 เด้งขึ้น */
+    background-color: #e10600;
+    border-radius: 3px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================
+   🔽 DROPDOWN MENU (วางตรงนี้)
+========================= */
+.has-dropdown {
+    position: relative;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+
+    min-width: 220px;
+    background-color: #111111;
+    border-top: 4px solid #e10600;
+
+    list-style: none;
+    padding: 10px 0;
+
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s ease;
+    z-index: 999;
+}
+
+.has-dropdown:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown li a {
+    display: block;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    text-decoration: none;
+    text-align: left;
+}
+
+.arrow {
+    font-size: 12px;
+    margin-left: 6px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+/* หมุนลูกศรตอน hover */
+.has-dropdown:hover .arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown li a:hover {
+    background-color: #e10600;
+}
+
+/* ==================================================
+   MAIN LAYOUT
+================================================== */
+main {
+    padding: 10px 20px;
+}
+
+.container {
+    max-width: 100%;
+    margin: auto;
+}
+
+/* ==================================================
+   HERO SECTION
+================================================== */
+.hero {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 40px;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 8px solid #e10600;
+    overflow: hidden; /* 🔥 ตัดส่วนภาพที่ล้น */
+}
+
+.hero img {
+    width: 50%;
+    border-radius: 10px;
+    transition: transform 0.4s ease;
+    transform-origin: center; /* 🔥 ขยายจากตรงกลาง */
+}
+
+.hero img:hover {
+    transform: scale(1.1);
+}
+
+.hero h2 {
+    color: #e10600;
+    margin-bottom: 10px;
+}
+
+.hero div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* 🔹 ข้อความเริ่มจากด้านบน */
+    align-items: flex-start;     /* 🔹 ชิดซ้าย */
+}
+
+/* ==================================================
+   GRID & CARD
+================================================== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    border-top: 6px solid #e10600;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* 🔥 ตัดส่วนภาพที่ล้นกรอบ */
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    transform-origin: center;
+}
+
+.card img:hover {
+    transform: scale(1.05);
+}
+
+.card h3 {
+    color: #e10600;
+    margin-bottom: 10px;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.2);
+}
+
+/* ==============================
+   PAGE LAYOUT
+============================== */
+.detail-page {
+    max-width: 1500px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* ==============================
+   IMAGE CENTER
+============================== */
+.image-center {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.image-center img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1250px;   /* 🔥 ขนาดไม่ใหญ่เกิน */
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* ==============================
+   CONTENT
+============================== */
+.content h2 {
+    color: #e10600;
+    margin-bottom: 15px;
+}
+
+.content p {
+    color: #ffffff;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* ==================================================
+   SCROLL ANIMATION
+================================================== */
+.scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==================================================
+   SECTION
+================================================== */
+section {
+    margin-bottom: 0px;
+}
+
+/* ==================================================
+   FOOTER
+================================================== */
+footer {
+    background-color: #111111;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+    border-top: 4px solid #e10600;
+}
+
+/* ==================================================
+   RESPONSIVE DESIGN
+================================================== */
+@media (max-width: 1024px) {
+
+    .nav-menu {
+        justify-content: flex-start;  /* 🔥 ชิดซ้าย */
+    }
+    
+    header h1 {
+        font-size: 24px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    nav ul li a {
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    main {
+        padding: 20px 10px;
+    }
+
+    .hero {
+        flex-direction: column;
+    }
+
+    .hero img {
+        width: 100%;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Disable scroll animation on mobile */
+    .scroll {
+        opacity: 1;
+        transform: none;
+    }
+
+
+}
+
+/* ==============================
+   HEADER SOUND BUTTON (GLOBAL)
+============================== */
+#header-sound-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    width: 42px;
+    height: 42px;
+
+    background: rgba(0,0,0,0.3);
+    border: 2px solid #ffffff;
+    color: #ffffff;
+
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 10;
+
+    transition: background 0.25s ease, transform 0.2s ease;
+}
+
+#header-sound-btn:hover {
+    background: rgba(255,255,255,0.25);
+    transform: scale(1.1);
+}
+
+/* ==============================
+   MUSIC PROGRESS BAR
+============================== */
+#music-progress {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+
+    width: 120px;
+    height: 4px;
+
+    appearance: none;
+    background: rgba(255,255,255,0.3);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#music-progress::-webkit-slider-thumb {
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+#music-progress::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+/* ==============================
+   FULL PAGE VIDEO BACKGROUND
+============================== */
+
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: -2;
+    overflow: hidden;
+}
+
+.video-bg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    opacity: 0.25;       /* 🔥 ความจาง */
+    filter: blur(2px);   /* 🔥 เบลอนิด ๆ */
+}
+
+/* Overlay ให้เนื้อหาชัด */
+.video-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* ==============================
+   MODE TABLE SECTION
+============================== */
+
+.mode-section {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+    color: #ffffff;
+}
+
+.mode-section h2 {
+    font-size: 22px;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+/* ตาราง */
+.mode-table {
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* แถว */
+.mode-row {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    padding: 14px 16px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    font-size: 15px;
+}
+
+/* แถวหัวตาราง */
+.mode-header {
+    font-weight: 600;
+    background: rgba(255,255,255,0.05);
+    border-top: none;
+}
+
+/* ชื่อโหมด */
+.mode-title {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .mode-row {
+        grid-template-columns: 1fr;
+        row-gap: 6px;
+    }
+
+    .mode-header {
+        display: none;
+    }
+}
+
+/* ==============================
+   FEATURE LIST (CENTERED)
+============================== */
+
+.feature-section {
+    max-width: 720px;
+    margin: 60px auto;
+    padding: 30px 28px;
+
+    border-radius: 8px;
+
+    color: #ffffff;
+    text-align: left; /* 🔥 เนื้อหายังอ่านง่าย */
+}
+
+.feature-section h2 {
+    font-size: 22px;
+    margin-bottom: 18px;
+    font-weight: 600;
+}
+
+/* list หลัก */
+.feature-list {
+    list-style: decimal;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.feature-list > li {
+    margin-bottom: 14px;
+    line-height: 1.6;
+}
+
+/* หัวข้อแต่ละข้อ */
+.feature-list strong {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+/* list ย่อย */
+.feature-list ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-top: 4px;
+}
+
+.feature-list ul li {
+    margin-bottom: 4px;
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+/* ข้อความปิดท้าย */
+.feature-note {
+    margin-top: 18px;
+    font-size: 15px;
+    font-weight: 500;
+    opacity: 0.95;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .feature-section {
+        padding: 24px 20px;
+    }
+
+    .feature-section h2 {
+        font-size: 20px;
+    }
+}
+
+header {
+    position: static; /* 🔥 สำคัญ */
+    background: linear-gradient(88deg, #ffffff, #ff0000);
+    color: #f1f1f1;
+    padding: 30px 19px;
+    text-align: center;
+}
